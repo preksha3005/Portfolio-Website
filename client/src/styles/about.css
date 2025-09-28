@@ -1,0 +1,281 @@
+/* ------------------- About Section ------------------- */
+.about-section {
+  padding: 80px 20px;
+  min-height: 100vh;
+  /* Setting background to transparent assumes the BODY has the dark gradient */
+  background: transparent; 
+  /* Default text color for the section */
+  color: #e0eeef; 
+  transition: padding 0.5s;
+}
+
+.about-container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.head {
+  font-size: 3rem;
+  text-align: center;
+  font-weight: 600;
+  margin-bottom: 50px;
+  /* Heading color matching the vibrant blue of the navbar/theme */
+  color: white; 
+  text-shadow: 0 0 20px rgb(255, 243, 243);
+}
+
+.about-card {
+  margin-bottom: 60px;
+  padding: 30px;
+  border-radius: 15px;
+  position: relative; 
+  
+  /* CONSISTENT DARK MODE CARD STYLE */
+  background: rgba(255, 255, 255, 0.1); /* Lighter transparent white for background */
+  border: 1px solid rgba(255, 255, 255, 0.15); /* Subtle white border */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); /* Shadow for depth */
+}
+
+.about-card h2 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+  font-weight: 500;
+  color: inherit;
+}
+
+.about-card p {
+  line-height: 1.6;
+  font-size: 1.1rem;
+  color: inherit;
+  margin-bottom: 30px; 
+}
+
+/* ------------------- Achievements ------------------- */
+.achievements h3 {
+  font-size: 1.4rem;
+  margin-bottom: 15px;
+  color: #14104f; /* Color the heading */
+}
+
+.achievements ul {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 0;
+}
+
+.achievements li {
+  font-size: 1.1rem;
+  line-height: 1.5;
+  margin-bottom: 8px;
+  position: relative;
+  padding-left: 30px;
+}
+
+
+/* ------------------- Timeline ------------------- */
+.timeline {
+  position: relative;
+  padding-left: 20px; 
+  margin-top: 20px;
+}
+
+/* The vertical line */
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 0; 
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  /* Timeline line color */
+  background: #00bcd4; 
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 30px;
+}
+
+/* The dot */
+.timeline-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  position: absolute;
+  left: -26px; 
+  top: 8px; 
+  z-index: 10;
+  /* Dot color and glow */
+  background: #00bcd4;
+  box-shadow: 0 0 10px rgba(0, 188, 212, 0.7);
+}
+
+.timeline-content {
+  padding-left: 20px; 
+}
+
+.timeline-content h3 {
+  margin: 0;
+  font-size: 1.2rem;
+  /* Darker background for the education title card */
+  padding: 10px 15px;
+  border-radius: 10px;
+  /* background: rgba(106, 90, 205, 0.7);  */
+  color: #14104f; 
+  font-weight: 700;
+  /* box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); */
+}
+
+.timeline-content p {
+  margin: 5px 0 0;
+  font-size: 1rem;
+  padding-left: 15px; 
+  color: inherit;
+}
+
+/* ------------------- Position of Responsibility ------------------- */
+.por-list {
+  list-style: none;
+  padding: 0;
+}
+
+.por-list li {
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+  line-height: 1.5;
+  position: relative;
+  padding-left: 30px;
+}
+
+
+/* 🌐 Medium Screens (Tablets & small laptops) */
+@media (max-width: 992px) {
+  .about-section {
+    padding: 60px 40px;
+  }
+
+  .head {
+    font-size: 3.2rem;
+    margin-bottom: 40px;
+  }
+
+  .about-card {
+    padding: 25px;
+    margin-bottom: 50px;
+  }
+
+  .about-card h2 {
+    font-size: 2rem;
+  }
+
+  .about-card p {
+    font-size: 1.3rem;
+  }
+
+  .achievements h3 {
+    font-size: 1.5rem;
+  }
+
+  .achievements li {
+    font-size: 1rem;
+  }
+
+  .timeline-content h3 {
+    font-size: 1.3rem;
+  }
+
+  .timeline-content p {
+    font-size: 1.2rem;
+  }
+  .por-list li{
+    font-size: 1.2rem;
+  }
+}
+
+/* 📱 Small Screens (Phones) */
+@media (max-width: 600px) {
+  .about-section {
+    padding: 50px 20px;
+  }
+
+  .head {
+    font-size: 2.4rem;
+    margin-bottom: 30px;
+  }
+
+  .about-card {
+    padding: 20px;
+    margin-bottom: 40px;
+  }
+
+  .about-card h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+
+  .about-card p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+
+  .achievements h3 {
+    font-size: 1.2rem;
+  }
+
+  .achievements li {
+    font-size: 0.95rem;
+    padding-left: 25px;
+  }
+
+  .timeline {
+    padding-left: 15px;
+  }
+
+  .timeline::before {
+    left: 0;
+  }
+
+  .timeline-dot {
+    width: 10px;
+    height: 10px;
+    left: -20px;
+    top: 6px;
+  }
+
+  .timeline-content h3 {
+    font-size: 1rem;
+    padding: 8px 12px;
+  }
+
+  .timeline-content p {
+    font-size: 0.9rem;
+    padding-left: 10px;
+  }
+
+  .por-list li {
+    font-size: 0.95rem;
+    padding-left: 25px;
+  }
+}
+
+/* 📱 Extra Small Screens (Narrow Phones) */
+@media (max-width: 400px) {
+  .head {
+    font-size: 2rem;
+  }
+
+  .about-card h2 {
+    font-size: 1.3rem;
+  }
+
+  .about-card p,
+  .achievements li,
+  .timeline-content p,
+  .por-list li {
+    font-size: 0.95rem;
+  }
+
+  .timeline-content h3 {
+    font-size: 0.95rem;
+  }
+}

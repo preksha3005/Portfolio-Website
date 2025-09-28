@@ -1,0 +1,110 @@
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000; 
+  padding: 15px 50px; 
+  display: flex;
+  justify-content: space-between; 
+  align-items: center; 
+  height: 12vh;
+  background: rgba(0, 0, 0, 0.194); 
+  backdrop-filter: blur(12px); 
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1); 
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+  color: #fff;
+}
+
+.nav-name a {
+  font-size: 1.8rem;
+  font-weight: 700;
+  text-decoration: none;
+  color: #64FFDA; 
+  text-shadow: 0 0 16px white; 
+  transition: color 0.3s, text-shadow 0.3s;
+}
+
+.nav-name a:hover {
+    color: #ffffff; 
+}
+
+/* Nav Links Container */
+.nav-links {
+    display: flex;
+    gap: 30px; 
+}
+
+.nav-item {
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-decoration: none;
+    color: #e0e0e0; 
+    transition: color 0.3s, text-shadow 0.3s;
+}
+
+.nav-item:hover {
+    color: #64FFDA; 
+    text-shadow: 0 0 10px white;
+}
+
+
+/* 📱 Responsive Navbar Tweaks */
+
+/* Medium screens (tablets & small laptops) */
+@media (max-width: 992px) {
+  .navbar {
+    padding: 10px 30px;
+    height: 10vh;
+  }
+
+  .nav-name a {
+    font-size: 1.8rem;
+  }
+
+  .nav-links {
+    gap: 20px;
+  }
+
+  .nav-item {
+    font-size: 1.4rem;
+  }
+}
+
+/* Small screens (phones) */
+@media (max-width: 600px) {
+  .navbar {
+    padding: 10px 20px;
+    height: 10vh;
+  }
+
+  .nav-name a {
+    font-size: 1.2rem;
+  }
+
+  .nav-links {
+    gap: 6px;
+    margin-top: 5px;
+  }
+
+  .nav-item {
+    font-size: 0.9rem;
+  }
+}
+
+/* Extra small (very narrow phones) */
+@media (max-width: 400px) {
+  .nav-name a {
+    font-size: 0.9rem;
+  }
+
+  .nav-item {
+    font-size: 0.75rem;
+  }
+
+  .nav-links {
+    gap: 7px;
+  }
+}
+

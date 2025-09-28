@@ -1,0 +1,130 @@
+body {
+  background: linear-gradient(
+    45deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(9, 9, 121, 1) 35%,
+    rgba(0, 212, 255, 1) 100%
+  );
+  color: white;
+}
+
+.hero-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0px 50px;
+  min-height: calc(85vh - 50px); /* Fill the screen minus the Navbar height */
+  margin-top: 100px;
+  transition: background-color 0.3s, color 0.3s;
+  text-align: center;
+}
+
+/* Hero text */
+.hero-content {
+  max-width: 700px;
+}
+
+.hero-content h1 {
+  font-size: 48px;
+  margin-bottom: 20px;
+  font-weight: 700;
+  color: #14104f;
+}
+
+.hero-content p {
+  font-size: 20px;
+  margin-bottom: 30px;
+  line-height: 1.5;
+  color: inherit;
+}
+
+/* Resume button */
+.resume-btn {
+  display: inline-block;
+  padding: 10px 20px;
+  border: 2px solid currentColor;
+  border-radius: 5px;
+  text-decoration: none;
+  color: inherit;
+  font-weight: 500;
+  transition: all 0.3s;
+  border-radius: 20px;
+}
+.resume-btn:hover {
+  background-color: #14104f;
+  color: white;
+  box-shadow: 0 0 10px #007bff;
+  outline: none;
+}
+
+/* 🌐 Medium Screens (Tablets & small laptops) */
+@media (max-width: 992px) {
+  .hero-section {
+    padding: 0 20px;
+    margin-top: 60px;
+    min-height: calc(92vh - 60px);
+  }
+
+  .hero-content h1 {
+    font-size: 50px;
+  }
+
+  .hero-content p {
+    font-size: 26px;
+  }
+
+  .resume-btn {
+    padding: 9px 18px;
+    font-size: 1.6rem;
+  }
+}
+
+/* 📱 Small Screens (Phones) */
+@media (max-width: 600px) {
+  .hero-section {
+    flex-direction: column;
+    padding: 20px;
+    text-align: center;
+    margin-top: 140px;
+    min-height: calc(78vh - 50px);
+  }
+
+  .hero-content {
+    max-width: 100%;
+  }
+
+  .hero-content h1 {
+    font-size: 35px;
+    margin-bottom: 15px;
+  }
+
+  .hero-content p {
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+
+  .resume-btn {
+    padding: 8px 16px;
+    font-size: 1.2rem;
+  }
+}
+
+/* 📱 Extra Small Screens (Narrow Phones) */
+@media (max-width: 400px) {
+  .hero-section {
+    margin-top: 120px;
+    min-height: calc(78vh - 50px);
+  }
+  .hero-content h1 {
+    font-size: 30px;
+  }
+
+  .hero-content p {
+    font-size: 18px;
+  }
+
+  .resume-btn {
+    padding: 7px 14px;
+    font-size: 1rem;
+  }
+}
