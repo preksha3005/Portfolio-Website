@@ -6,7 +6,6 @@ import "../styles/contact.css";
 export default function Contact() {
   return (
     <section id="contact" className="contact-section">
-      {/* Animated Heading */}
       <motion.h2
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
@@ -16,38 +15,51 @@ export default function Contact() {
       </motion.h2>
 
       <motion.div
-        className="contact-info"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.5, duration: 0.8 }}
+        className="contact-cards"
+        initial="hidden"
+        animate="visible"
+        variants={{
+          hidden: { opacity: 0 },
+          visible: { opacity: 1, transition: { staggerChildren: 0.2 } },
+        }}
       >
-        <motion.p
+        {/* Email Card */}
+        <motion.div
+          className="contact-card"
           whileHover={{ scale: 1.05 }}
-          transition={{ type: "spring", stiffness: 300 }}
         >
-          <FaEnvelope />{" "}
+          <FaEnvelope className="card-icon" />
           <a href="mailto:preksha.g504@gmail.com">preksha.g504@gmail.com</a>
-        </motion.p>
+        </motion.div>
 
-        <motion.div className="social-links" initial={{ y: 20 }} animate={{ y: 0 }} transition={{ delay: 0.7 }}>
-          <motion.a
+        {/* LinkedIn Card */}
+        <motion.div
+          className="contact-card"
+          whileHover={{ scale: 1.05 }}
+        >
+          <FaLinkedin className="card-icon" />
+          <a
             href="https://www.linkedin.com/in/prekshagarg"
             target="_blank"
             rel="noreferrer"
-            whileHover={{ scale: 1.2, color: "#0077b5" }}
-            transition={{ type: "spring", stiffness: 300 }}
           >
-            <FaLinkedin />
-          </motion.a>
-          <motion.a
+            LinkedIn
+          </a>
+        </motion.div>
+
+        {/* GitHub Card */}
+        <motion.div
+          className="contact-card"
+          whileHover={{ scale: 1.05 }}
+        >
+          <FaGithub className="card-icon" />
+          <a
             href="https://github.com/preksha3005"
             target="_blank"
             rel="noreferrer"
-            whileHover={{ scale: 1.2, color: "#333" }}
-            transition={{ type: "spring", stiffness: 300 }}
           >
-            <FaGithub />
-          </motion.a>
+            GitHub
+          </a>
         </motion.div>
       </motion.div>
     </section>
