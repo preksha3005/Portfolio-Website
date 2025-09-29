@@ -5,12 +5,6 @@ client/.env
 client/.env.*     # Optional if you use .env.production etc.
 
 
-# === BACKEND (server) ===
-server/node_modules/
-server/.env
-server/.env.*     # Other variants (e.g. .env.local)
-
-
 # === Logs ===
 *.log
 npm-debug.log*
