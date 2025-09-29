@@ -302,36 +302,40 @@
 /* Media Queries for Tablets (max-width: 992px) */
 @media (max-width: 992px) {
     .contact-section {
-        /* Slightly reduce vertical padding and gap to better fit content */
         padding: 60px 20px;
         gap: 40px;
     }
 
     .contact-section h2 {
-        /* Slightly larger font size than before for better presence */
         font-size: 2.8rem;
     }
 
     .contact-cards {
-        /* Increase the gap between cards */
-        gap: 40px; 
+        /* KEY CHANGE: Force vertical stacking */
+        flex-direction: column; 
+        /* Center the vertical stack of cards */
+        align-items: center;
+        /* Reduce gap for vertical spacing */
+        gap: 25px; 
     }
 
     .contact-card {
-        /* Increase the horizontal padding to make the card wider */
-        padding: 30px 50px; 
-        /* Ensure a reasonable minimum width */
-        min-width: 250px; 
+        /* KEY CHANGE: Set a fixed width to make the cards look substantial */
+        width: 80%; 
+        /* Set a max width so they don't get too wide on a large tablet */
+        max-width: 450px; 
+        /* Restore padding to keep them looking good */
+        padding: 30px 40px;
+        /* Ensure min-width doesn't override the new width setting */
+        min-width: unset; 
     }
     
     .card-icon {
-        /* Keep icon size consistent or slightly reduce */
-        font-size: 2.2rem;
+        font-size: 2.5rem;
     }
 
     .contact-card a {
-        /* Slightly larger text for better readability on tablets */
-        font-size: 1.3rem; 
+        font-size: 1.3rem;
     }
 }
 
