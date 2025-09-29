@@ -299,18 +299,40 @@
 
 /* Media Queries */
 
-/* Tablets */
+/* Media Queries for Tablets (max-width: 992px) */
 @media (max-width: 992px) {
-  .contact-section h2 {
-    font-size: 2.5rem;
-  }
-  .contact-card {
-    padding: 25px 30px;
-    min-width: 200px;
-  }
-  .card-icon {
-    font-size: 2.2rem;
-  }
+    .contact-section {
+        /* Slightly reduce vertical padding and gap to better fit content */
+        padding: 60px 20px;
+        gap: 40px;
+    }
+
+    .contact-section h2 {
+        /* Slightly larger font size than before for better presence */
+        font-size: 2.8rem;
+    }
+
+    .contact-cards {
+        /* Increase the gap between cards */
+        gap: 40px; 
+    }
+
+    .contact-card {
+        /* Increase the horizontal padding to make the card wider */
+        padding: 30px 50px; 
+        /* Ensure a reasonable minimum width */
+        min-width: 250px; 
+    }
+    
+    .card-icon {
+        /* Keep icon size consistent or slightly reduce */
+        font-size: 2.2rem;
+    }
+
+    .contact-card a {
+        /* Slightly larger text for better readability on tablets */
+        font-size: 1.3rem; 
+    }
 }
 
 /* Mobile */
