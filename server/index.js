@@ -47,11 +47,11 @@ app.post("/sendmessage", async (req, res) => {
   try {
     // Send email via Resend API
     await resend.emails.send({
-      from: process.env.EMAIL_USER, // your email
-      to: process.env.EMAIL_USER, // where you want to receive messages
+      from: process.env.EMAIL_USER, 
+      to: process.env.EMAIL_USER, 
       subject: `Portfolio message from ${name}`,
       text: `You got a message!! \n\n Name: ${name} \n Email: ${email} \n Message: ${message}`,
-      replyTo: email, // so you can reply directly to sender
+      replyTo: email, 
     });
 
     // Save message to MongoDB
