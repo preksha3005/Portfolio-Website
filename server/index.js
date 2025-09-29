@@ -6,6 +6,7 @@ import dotenv from "dotenv";
 import nodemailer from "nodemailer";
 import Message from "./Models/Message.js";
 import cookieParser from "cookie-parser";
+import Resend from "resend";
 
 dotenv.config();
 const app = express();
@@ -33,42 +34,34 @@ mongoose
     process.exit(1);
   });
 
-// Send message from contact part of the portfolio
+const resend = new Resend(process.env.RESEND_API_KEY);
+
+// Send message from contact form
 app.post("/sendmessage", async (req, res) => {
   const { name, email, message } = req.body;
 
   if (!name || !email || !message) {
     return res.status(400).json({ error: "All fields are required" });
   }
+
   try {
-    const transporter = nodemailer.createTransport({
-      service: "gmail",
-      auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.PASS,
-      },
-    });
-
-    const mailOptions = {
-      from: process.env.EMAIL_USER, // your Gmail
-      replyTo: email, // visitor's email for reply
-      to: process.env.EMAIL_USER,
-      subject: `Portfolio website message from ${name}`,
+    // Send email via Resend API
+    await resend.emails.send({
+      from: process.env.EMAIL_USER, // your email
+      to: process.env.EMAIL_USER,   // where you want to receive messages
+      subject: `Portfolio message from ${name}`,
       text: `You got a message!! \n\n Name: ${name} \n Email: ${email} \n Message: ${message}`,
-    };
-
-    await transporter.sendMail(mailOptions);
-    const newMessage = new Message({
-      name,
-      email,
-      message,
-      createdAt: new Date(),
+      replyTo: email, // so you can reply directly to sender
     });
+
+    // Save message to MongoDB
+    const newMessage = new Message({ name, email, message, createdAt: new Date() });
     await newMessage.save();
+
     res.json({ message: "Message sent successfully!" });
   } catch (err) {
-    console.error("Error sending message:", err);
-    return res.status(500).json({ error: err.message });
+    console.error("Resend API error:", err);
+    res.status(500).json({ error: "Failed to send message" });
   }
 });
 
