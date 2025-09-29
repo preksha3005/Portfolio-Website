@@ -10,13 +10,14 @@ import cookieParser from "cookie-parser";
 dotenv.config();
 const app = express();
 
-app.use(cors({
-  origin: 'https://portfoliofrontend-6tgu.onrender.com',
-  credentials: true,
-  methods: ['GET', 'POST', 'PUT', 'DELETE'], 
-  allowedHeaders: ['Content-Type', 'Authorization']
-}));
-
+app.use(
+  cors({
+    origin: "https://portfoliofrontend-6tgu.onrender.com",
+    credentials: true,
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+  })
+);
 
 app.use(express.json());
 app.use(cookieParser()); // middleware function in Express.js that enables the parsing of cookies in incoming requests.
@@ -49,7 +50,8 @@ app.post("/sendmessage", async (req, res) => {
     });
 
     const mailOptions = {
-      from: email,
+      from: process.env.EMAIL_USER, // your Gmail
+      replyTo: email, // visitor's email for reply
       to: process.env.EMAIL_USER,
       subject: `Portfolio website message from ${name}`,
       text: `You got a message!! \n\n Name: ${name} \n Email: ${email} \n Message: ${message}`,
@@ -65,6 +67,7 @@ app.post("/sendmessage", async (req, res) => {
     await newMessage.save();
     res.json({ message: "Message sent successfully!" });
   } catch (err) {
+    console.error("Error sending message:", err);
     return res.status(500).json({ error: err.message });
   }
 });
