@@ -11,14 +11,13 @@ import cookieParser from "cookie-parser";
 dotenv.config();
 const app = express();
 
-app.use(
-  cors({
-    origin: "http://localhost:3000",
-    credentials: true,
-    // methods: ["GET", "POST", "PUT", "DELETE"],
-    // allowedHeaders: ["Content-Type", "Authorization"],
-  })
-);
+app.use(cors({
+  origin: 'https://portfoliofrontend-6tgu.onrender.com',
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE'], 
+  allowedHeaders: ['Content-Type', 'Authorization']
+}));
+
 
 app.use(express.json());
 app.use(cookieParser()); // middleware function in Express.js that enables the parsing of cookies in incoming requests.
