@@ -6,7 +6,7 @@ import dotenv from "dotenv";
 import nodemailer from "nodemailer";
 import Message from "./Models/Message.js";
 import cookieParser from "cookie-parser";
-import Resend from "resend";
+import { Resend } from "resend";
 
 dotenv.config();
 const app = express();
@@ -48,14 +48,19 @@ app.post("/sendmessage", async (req, res) => {
     // Send email via Resend API
     await resend.emails.send({
       from: process.env.EMAIL_USER, // your email
-      to: process.env.EMAIL_USER,   // where you want to receive messages
+      to: process.env.EMAIL_USER, // where you want to receive messages
       subject: `Portfolio message from ${name}`,
       text: `You got a message!! \n\n Name: ${name} \n Email: ${email} \n Message: ${message}`,
       replyTo: email, // so you can reply directly to sender
     });
 
     // Save message to MongoDB
-    const newMessage = new Message({ name, email, message, createdAt: new Date() });
+    const newMessage = new Message({
+      name,
+      email,
+      message,
+      createdAt: new Date(),
+    });
     await newMessage.save();
 
     res.json({ message: "Message sent successfully!" });
