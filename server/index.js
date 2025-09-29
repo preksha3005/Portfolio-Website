@@ -5,7 +5,6 @@ import jwt from "jsonwebtoken";
 import dotenv from "dotenv";
 // import nodemailer from "nodemailer";
 import Message from "./Models/Message.js";
-import Projects from "./Models/Projects.js";
 import cookieParser from "cookie-parser";
 import { Resend } from "resend";
 
