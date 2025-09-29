@@ -45,10 +45,11 @@ app.post("/sendmessage", async (req, res) => {
 
   try {
     await resend.emails.send({
-      from: email,
+      from: process.env.EMAIL_REG,
       to: process.env.EMAIL_USER,
       subject: `Portfolio message from ${name}`,
       text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`,
+      reply_to: email 
     });
 
     const newMessage = new Message({
